@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        必要に応じて、次のメタ タグでコンテンツ セキュリティ ポリシーをカスタマイズします。default-src に 'unsafe-inline' を追加して、インライン JavaScript を有効にします。
+        詳細については、http://go.microsoft.com/fwlink/?LinkID=617521 を参照してください。
+    -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src * ">-->
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+        <link href="css/jquery.mobile.icons-1.4.5.min.css" rel="stylesheet" />
+
+        <link href="css/IndexPage.css" rel="stylesheet" />
+        <script src="scripts/jquery-1.8.0.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="scripts/business.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                InitailizeSearchConditions();
+                InitailizeDailyReportForm();
+             });
+        </script>
+        <title>ChiyodaMobileOffice</title>
+    </head>
+<body>
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">デバイスに接続しています</p>
+            <p class="event received">デバイスの準備が完了しました</p>
+        </div>
+    </div>
+    <div data-role="page" id="DailyReport">
+        <div data-role="header">
+            <h1>作業日報</h1>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-back" id="btnReturn">戻り</a>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="selectMachine">機械名</label>
+                <select id="selectMachine">
+                    <option>UW-1</option>
+                    <option>UW-2</option>
+                    <option>UW-3</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="txtWorkDate">作業日</label>
+                <input type="date" id="txtWorkDate"/>
+                <label id="txtWeekChar">(月)</label>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="selectWorkType">勤務区分</label>
+                <select id="selectWorkType">
+                    <option selected>昼</option>
+                    <option>夜</option>
+                </select>
+            </div>
+            <div data-role="fieldcontain" class="ui-grid-a">
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:10px" id="btnScheduleRead">予定計画読込</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:20px" id="btnStaffSetting">担当者設定</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:30px" id="btnEvirementSetting">稼働環境測定</button></div>
+            </div>
+            <hr />
+            <div data-role="fieldcontain">
+                <table id="detal-table">
+                    <thead>
+                        <tr>
+                            <th width="50"></th>
+                            <th width="50">順</th>
+                            <th width="100">受注NO</th>
+                            <th width="50">品名</th>
+                            <th width="100">得意先</th>
+                            <th width="100">作業区分</th>
+                            <th width="50">色数</th>
+                            <th width="50">方向</th>
+                            <th width="100">原反規格</th>
+                            <th width="50"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="detal-tbody"></tbody>
+                </table>
+            </div>
+            <div data-role="fieldcontain" class="ui-grid-a" id="divDisplay">
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:10px" id="btnEdit">編集</button></div>
+            </div>
+            <div data-role="fieldcontain" class="ui-grid-a" id="divEdit">
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:10px" id="btnAppend">追加</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:20px" id="btnDelete">削除</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:30px" id="btnOk">OK</button></div>
+            </div>
+          　<hr/>
+            <fieldset  data-role="controlgroup">
+                <legend>勤務時刻</legend>
+                <table>
+                    <tr>
+                        <td width="100" align="center">今村</td>
+                        <td><input type="time" id="clockOutTimeStart_0" value="08:30" /></td>
+                        <td>～</td>
+                        <td><input type="time" id="clockOutTimeEnd_0" value="21:30" /></td>
+                        <td width="100" align="center">和田</td>
+                        <td><input type="time" id="clockOutTimeStart_1" value="08:30" /></td>
+                        <td>～</td>
+                        <td><input type="time" id="clockOutTimeEnd_1" value="21:30" /></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <hr />
+            <div class="ui-grid-a" style="width:325px;margin: 0 auto;">
+                <div data-role="fieldcontain" class="ui-block-d">
+                        <input type="checkbox" name="checkbox-agree" id="checkbox-agree" class="custom" />
+                        <label for="checkbox-agree">確認済み</label>
+                </div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" id="btnEntry">登録</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:5px" id="btnCancel">キャンセル</button></div>
+            </div>
+         </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿#detal-table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+#detal-table th, #detal-table td {
+        border: 1px solid #ccc;
+        padding: 12px 8px;
+        text-align: center;
+        height: 40px;
+    }
+
+#detal-table th {
+     background-color: #1e50a2;
+     color: #fff;
+}
+
+
+#txtWeekChar {
+    position: absolute;
+    margin-left:240px;
+    /*margin-left: expression(evl);*/
+}
+
+#fieldsetBox {
+    border: 2px solid #000;
+}
+
+#fieldsetLegend {
+    float: left;
+    width: 100%;
+    margin-top: -10px;
+    font-weight: bold;
+}
