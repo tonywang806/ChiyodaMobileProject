@@ -4,7 +4,7 @@ var youbi = new Array("日", "月", "火", "水", "木", "金", "土");
 
 var EDIT_MODE = {
     DISPLAY: 0,
-    EDIT: 1,
+    EDIT: 1
 };
 
 var currentMode;
@@ -16,7 +16,7 @@ function InitailizeSearchConditions() {
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
 
     //出力用
-    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+    var today = now.getFullYear() + "-" + month + "-" + day;
     var you = now.getDay(); //曜日(0～6=日～土)
     var todayWeekChar = "(" + youbi[you] + ")";
 
@@ -41,14 +41,14 @@ function InitailizeDailyReportForm() {
 
 //曜日表示
 function SetWeekChar() {
-    if ($("#txtWorkDate").text == "") {
+    if ($("#txtWorkDate").text === "") {
         $("#txtWeekChar").val("");
     } else {
         var today = new Date($("#txtWorkDate").val());
         var you = today.getDay(); //曜日(0～6=日～土)
         var todayWeekChar = "(" + youbi[you] + ")";
 
-        $("#txtWeekChar").text(todayWeekChar)
+        $("#txtWeekChar").text(todayWeekChar);
     }
 }
 
@@ -57,7 +57,7 @@ function SetWeekChar() {
 //行追加
 function GetSchedule() {
     var newRow = "";
-    if (currentMode == EDIT_MODE.DISPLAY) {
+    if (currentMode === EDIT_MODE.DISPLAY) {
         newRow = "<tr><td style=\"display: none;\"><input type=\"radio\"/></td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>2</td><td>3</td><td>4</td><td><button class=\"ui-btn ui-corner-all\">実</button></td></tr>";
     } else {
         newRow = "<tr><td><input type=\"radio\"/></td><td>2</td><td>3</td><td>4</td><td>5</td><td>1</td><td>2</td><td>3</td><td>4</td><td style=\"display: none;\"><button class=\"ui-btn ui-corner-all\">実</button></td></tr>";
