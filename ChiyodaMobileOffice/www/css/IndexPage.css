@@ -4,22 +4,23 @@
     border-collapse: collapse;
 }
 
-#detal-table th, #detal-table td {
+    #detal-table th, #detal-table td {
         border: 1px solid #ccc;
         padding: 12px 8px;
         text-align: center;
         height: 40px;
     }
 
-#detal-table th {
-     background-color: #1e50a2;
-     color: #fff;
-}
+    #detal-table th {
+        background-color: #1e50a2;
+        color: #fff;
+    }
 
 
 #txtWeekChar {
     position: absolute;
-    margin-left:240px;
+    margin-top: -28px;
+    margin-left: 110px;
     /*margin-left: expression(evl);*/
 }
 
@@ -32,4 +33,8 @@
     width: 100%;
     margin-top: -10px;
     font-weight: bold;
+}
+
+input[type=number] {
+    text-align: right;
 }
