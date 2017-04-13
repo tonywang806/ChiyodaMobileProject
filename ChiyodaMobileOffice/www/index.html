@@ -49,10 +49,10 @@
             <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-back" id="btnReturn">戻り</a>
         </div>
         <div data-role="content">
-            <table width="70%">
+            <table style="width:70%">
                 <tr>
                     <td>機械名</td>
-                    <td colspan="2">
+                    <td colspan="3">
                         <select id="selectMachine">
                             <option>UW-1</option>
                             <option>UW-2</option>
@@ -63,6 +63,7 @@
                 <tr>
                     <td>作業日</td>
                     <td><input type="date" id="txtWorkDate" /></td>
+                    <td width="20px"></td>
                     <td>
                         <select name="selectWorkType" id="selectWorkType" data-role="slider">
                             <option value="on">夜</option>
@@ -77,9 +78,9 @@
                 <div class="ui-block-d"></div>
             </div>-->
             <div data-role="controlgroup" data-type="horizontal">
-                <a href="#StaffSetting" class="ui-btn ui-corner-all" data-ajax="false"  >担当者設定</a>
-                <a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all" data-ajax="false"  >作業環境測定</a>
-                <button class="ui-btn ui-corner-all" id="btnScheduleRead">予定計画読込</button>
+                <a href="#StaffSetting" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-user" data-ajax="false"  >担当者設定</a>
+                <a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-eye" data-ajax="false"  >作業環境測定</a>
+                <button class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-calendar" id="btnScheduleRead">予定計画読込</button>
             </div>
             <hr />
             <ul id="orderList" style="list-style:none;margin-left:-30px">
@@ -124,13 +125,13 @@
                 </li>
             </ul>
             <div id="divDisplay" data-role="controlgroup" data-type="horizontal">
-                <button class="ui-btn ui-corner-all" id="btnEdit">編集</button>
-                <button class="ui-btn ui-corner-all" onClick="GotoResultEntry();">実績入力</button>
+                <button class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-edit" id="btnEdit">編集</button>
+                <button class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-r" onClick="GotoResultEntry();">実績入力</button>
             </div>
             <div data-role="controlgroup" id="divEdit" data-type="horizontal">
-                <button class="ui-btn ui-corner-all" id="btnAppend">追加</button>
-                <button class="ui-btn ui-corner-all" id="btnDelete">削除</button>
-                <button class="ui-btn ui-corner-all" id="btnOk">OK</button>
+                <button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-plus" id="btnAppend">追加</button>
+                <button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-minus" id="btnDelete">削除</button>
+                <button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-check" id="btnOk">OK</button>
             </div>
             <hr />
             <!--<fieldset data-role="controlgroup">
@@ -157,7 +158,7 @@
             <div class="ui-grid-c">
                 <div class="ui-block-a"></div>
                 <div class="ui-block-b"><input type="checkbox" id="checkbox-agree" /><label for="checkbox-agree">確認済み</label></div>
-                <div class="ui-block-c"><button class="ui-corner-all" id="btnEntry">登録</button></div>
+                <div class="ui-block-c"><button class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-info" id="btnEntry">登録</button></div>
                 <!--<div class="ui-block-c"><button class="ui-corner-all" id="btnCancel">キャンセル</button></div>-->
                 <div class="ui-block-d"></div>
             </div>
