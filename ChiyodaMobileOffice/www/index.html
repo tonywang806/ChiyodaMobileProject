@@ -10,7 +10,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport" content="user-scalabel=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <link href="css/jquery.mobile.icons-1.4.5.min.css" rel="stylesheet" />
@@ -71,42 +71,69 @@
                     </td>
                 </tr>
             </table>
-            <div class="ui-grid-c">
-                <div class="ui-block-a"><button class="ui-btn ui-corner-all" id="btnScheduleRead">予定計画読込</button></div>
+            <!--<div class="ui-grid-c">
                 <div class="ui-block-b"><a href="#StaffSetting" class="ui-btn ui-corner-all">担当者設定</a></div>
-                <div class="ui-block-c"><a href="#WorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all">作業環境測定</a></div>
+                <div class="ui-block-c"><a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all">作業環境測定</a></div>
                 <div class="ui-block-d"></div>
+            </div>-->
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#StaffSetting" class="ui-btn ui-corner-all">担当者設定</a>
+                <a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all">作業環境測定</a>
+                <button class="ui-btn ui-corner-all" id="btnScheduleRead">予定計画読込</button>
             </div>
             <hr />
-            <div data-role="fieldcontain">
-                <table id="detal-table">
-                    <thead>
-                        <tr>
-                            <th width="50"></th>
-                            <th width="50">順</th>
-                            <th width="100">受注NO</th>
-                            <th width="50">品名</th>
-                            <th width="100">得意先</th>
-                            <th width="100">作業区分</th>
-                            <th width="50">色数</th>
-                            <th width="50">方向</th>
-                            <th width="100">原反規格</th>
-                            <th width="50"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="detal-tbody"></tbody>
-                </table>
+            <ul id="orderList" style="list-style:none;margin-left:-30px">
+                <li>
+                    <table class="detal-table">
+                        <thead>
+                            <tr>
+                                <th width="30px"></th>
+                                <th width="30px">順</th>
+                                <th width="120px">受注NO</th>
+                                <th colspan="4">品名</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td><input type="number" readonly value="1" /></td>
+                                <td><input type="text" readonly value="17-02-7012-00" /></td>
+                                <td colspan="4">CPSーギンガ20GN</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th colspan="3">得意先</th>
+                                <th>作業区分</th>
+                                <th>色数</th>
+                                <th>方向</th>
+                                <th>原反規格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">中央化学</td>
+                                <td>建材</td>
+                                <td></td>
+                                <td>他(一定)</td>
+                                <td>20μ×1040</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </li>
+            </ul>
+            <div id="divDisplay" data-role="controlgroup" data-type="horizontal">
+                <button class="ui-btn ui-corner-all" id="btnEdit">編集</button>
+                <button class="ui-btn ui-corner-all" onClick="GotoResultEntry();">実績入力</button>
             </div>
-            <div data-role="fieldcontain" class="ui-grid-a" id="divDisplay">
-                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:10px" id="btnEdit">編集</button></div>
-            </div>
-            <div data-role="fieldcontain" class="ui-grid-a" id="divEdit">
-                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:10px" id="btnAppend">追加</button></div>
-                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:20px" id="btnDelete">削除</button></div>
-                <div class="ui-block-d"><button class="ui-btn ui-corner-all" style="margin-left:30px" id="btnOk">OK</button></div>
+            <div data-role="controlgroup" id="divEdit" data-type="horizontal">
+                <button class="ui-btn ui-corner-all" id="btnAppend">追加</button>
+                <button class="ui-btn ui-corner-all" id="btnDelete">削除</button>
+                <button class="ui-btn ui-corner-all" id="btnOk">OK</button>
             </div>
             <hr />
-            <fieldset data-role="controlgroup">
+            <!--<fieldset data-role="controlgroup">
                 <legend>勤務時刻</legend>
                 <table>
                     <tr>
@@ -120,8 +147,8 @@
                         <td><input type="time" id="clockOutTimeEnd_1" value="21:30" /></td>
                     </tr>
                 </table>
-            </fieldset>
-            <hr />
+            </fieldset>-->
+            <!--<hr />-->
             <!--<div class="ui-grid-b">
                 <div class="ui-block-a"></div>
                 <div class="ui-block-b"><input type="checkbox" id="checkbox-agree" /><label for="checkbox-agree">確認済み</label></div>
@@ -135,7 +162,7 @@
                 <div class="ui-block-d"></div>
             </div>
         </div>
-        <div id="WorkEnviromentAssessment" data-role="panel" data-position-fixed="true" data-display="overlay">
+        <div id="pnlWorkEnviromentAssessment" data-role="panel" data-position-fixed="true" data-display="overlay">
             <ul>
                 <li>
                     <span>温度</span>
@@ -165,7 +192,7 @@
                     </table>
                 </li>
             </ul>
-             <hr />
+            <hr />
             <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">閉じる</a>
         </div>
     </div>
@@ -193,6 +220,15 @@
                         <div class="ui-block-b"><input type="checkbox" id="checkCaptainRest" /><label for="checkCaptainRest">休暇</label></div>
                         <div class="ui-block-c"><input type="checkbox" id="checkCaptainHalfRest" /><label for="checkCaptainHalfRest">半休</label></div>
                     </div>
+                    <table>
+                        <tr>
+                            <td>勤務時間</td>
+                            <td>：</td>
+                            <td><input type="time" id="clockOutTimeStart_Captain" value="08:30" /></td>
+                            <td>～</td>
+                            <td><input type="time" id="clockOutTimeEnd_Captain" value="21:30" /></td>
+                        </tr>
+                    </table>
                 </li>
                 <li>
                     <label style="font-weight:bold">機員1</label>
@@ -201,6 +237,15 @@
                         <div class="ui-block-b"><input type="checkbox" id="checkOperator1Rest" /><label for="checkOperator1Rest">休暇</label></div>
                         <div class="ui-block-c"><input type="checkbox" id="checkOperator1HalfRest" /><label for="checkOperator1HalfRest">半休</label></div>
                     </div>
+                    <table>
+                        <tr>
+                            <td>勤務時間</td>
+                            <td>：</td>
+                            <td><input type="time" id="clockOutTimeStart_Operator1" value="08:30" /></td>
+                            <td>～</td>
+                            <td><input type="time" id="clockOutTimeEnd_Operator1" value="21:30" /></td>
+                        </tr>
+                    </table>
                 </li>
                 <li>
                     <label style="font-weight:bold">機員2</label>
@@ -209,20 +254,30 @@
                         <div class="ui-block-b"><input type="checkbox" id="checkOperator2Rest" /><label for="checkOperator2Rest">休暇</label></div>
                         <div class="ui-block-c"><input type="checkbox" id="checkOperator2HalfRest" /><label for="checkOperator2HalfRest">半休</label></div>
                     </div>
+                    <table>
+                        <tr>
+                            <td>勤務時間</td>
+                            <td>：</td>
+                            <td><input type="time" id="clockOutTimeStart_Operator2" value="08:30" /></td>
+                            <td>～</td>
+                            <td><input type="time" id="clockOutTimeEnd_Operator2" value="21:30" /></td>
+                        </tr>
+                    </table>
                 </li>
             </ul>
             <hr />
-            <div class="ui-grid-b">
+            <!--<div class="ui-grid-b">
                 <div class="ui-block-a"></div>
                 <div class="ui-block-b"><input type="checkbox" id="checkbox-default" /><label for="checkbox-default">ディフォルト</label></div>
                 <div class="ui-block-c"></div>
-            </div>
+            </div>-->
             <div class="ui-grid-c">
                 <div class="ui-block-a"></div>
                 <div class="ui-block-b"><button class="ui-corner-all" id="btnSatffSettingEntry">登録</button></div>
                 <div class="ui-block-c"><button class="ui-corner-all" id="btnStaffSettingCancel">キャンセル</button></div>
                 <div class="ui-block-d"></div>
             </div>
+            <!--<a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">閉じる</a>-->
         </div>
     </div>
 
@@ -234,7 +289,391 @@
             <h1>実績入力</h1>
         </div>
         <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="orderNo">受注NO</label><input type="text"  id="OrderNo" name="orderNo" readonly value="17-02-7012-00" />
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#pnlWorkResult" class="ui-btn ui-icon-info ui-corner-all">稼働時間設定</a>
+                <button class="ui-corner-all" id="btnDetailResultEntry">加工条件入力</button>
+            </div>
+            <hr />
+            <table class="detal-table" id="tblDetails">
+                <thead>
+                    <tr>
+                        <th rowspan="3" width="40px"></th>
+                        <th rowspan="3">NO</th>
+                        <th rowspan="3">原紙名</th>
+                        <th rowspan="3">品種</th>
+                        <th rowspan="3">ロットNO</th>
+                        <th colspan="4">加工数</th>
+                        <th rowspan="3">備考</th>
+                    </tr>
+                    <tr>
+                        <th>投入</th>
+                        <th>継</th>
+                        <th>仕上</th>
+                        <th>継</th>
+                    </tr>
+                    <tr>
+                        <th>m</th>
+                        <th>回</th>
+                        <th>m</th>
+                        <th>回</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="radio" name="lotSelectGroup" /></td>
+                        <td>1</td>
+                        <td>5PH</td>
+                        <td>416122</td>
+                        <td>1070</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>3960</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="lotSelectGroup" /></td>
+                        <td>2</td>
+                        <td>5PH</td>
+                        <td>216122</td>
+                        <td>4087</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>熱....</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="lotSelectGroup" /></td>
+                        <td>3</td>
+                        <td>5PH</td>
+                        <td>216122</td>
+                        <td>4001</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="lotSelectGroup" /></td>
+                        <td>4</td>
+                        <td>5PH</td>
+                        <td>216122</td>
+                        <td>4002</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="lotSelectGroup" /></td>
+                        <td>5</td>
+                        <td>5PH</td>
+                        <td>216122</td>
+                        <td>4038</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td>4000</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr/>
+            <fieldset data-role="controlgroup">
+                <h3>備考</h3>
+                <textarea></textarea>
+            </fieldset>
+        </div>
+        <div data-role="panel" id="pnlWorkResult" data-position-fixed="true" data-display="overlay">
+            <div data-role="panel-content">
+                <div data-role="collapsible">
+                    <h3>作業実績</h3>
+                    <table>
+                        <tr>
+                            <td width="100px">責任完了数</td>
+                            <td><input type="number" style="width:80px;" value="19800" readonly /></td>
+                            <td><span>m</span></td>
+                        </tr>
+                        <tr>
+                            <td>リード紙</td>
+                            <td><input type="number" style="width:80px;" value="240" readonly /></td>
+                            <td><span>m</span></td>
+                        </tr>
+                        <tr>
+                            <td>投入数</td>
+                            <td><input type="number" style="width:80px;" value="2000" readonly /></td>
+                            <td>m</td>
+                        </tr>
+                        <tr>
+                            <td>仕上数</td>
+                            <td><input type="number" style="width:80px;" value="19960" readonly /></td>
+                            <td>m</td>
+                        </tr>
+                        <tr>
+                            <td>生産金額</td>
+                            <td><input type="number" style="width:80px;" value="990000" readonly /></td>
+                            <td>円</td>
+                        </tr>
+                        <tr>
+                            <td>完了区分</td>
+                            <td colspan="2">
+                                <select data-role="slider">
+                                    <option>未完成</option>
+                                    <option selected>完了</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>作業時間</h3>
+                    <table>
+                        <tr>
+                            <td width="100px">準備</td>
+                            <td><input type="number" style="width:60px;" value="20" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>調色</td>
+                            <td><input type="number" style="width:60px;" value="40" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>印刷</td>
+                            <td><input type="number" style="width:60px;" value="70" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>後始末</td>
+                            <td><input type="number" style="width:60px;" value="30" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>立合</td>
+                            <td><input type="number" style="width:60px;" value="" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>準備</td>
+                            <td><input type="number" style="width:60px;" value="20" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>停止</td>
+                            <td><input type="number" style="width:60px;" value="" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>始業前点検</td>
+                            <td><input type="number" style="width:60px;" value="" /></td>
+                            <td>分</td>
+                        </tr>
+                        <tr>
+                            <td>就業前時清掃</td>
+                            <td><input type="number" style="width:60px;" value="" /></td>
+                            <td>分</td>
+                        </tr>
+                    </table>
+                    <hr />
+                    <table>
+                        <tr>
+                            <td width="100px"><h3>合計</h3></td>
+                            <td><input type="number" style="width:60px;" value="20" /></td>
+                            <td>分</td>
+                        </tr>
+                    </table>
+                </div>
+                <table>
+                    <tr>
+                        <td><button>稼働開始時刻</button></td>
+                        <td><input type="time" /></td>
+                    </tr>
+                    <tr>
+                        <td><button>稼働終了時刻</button></td>
+                        <td><input type="time" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 
+    <!-- Detail Result Entry Page-->
+    <div data-role="page" id="DetailResultEntryPage">
+        <div data-role="header">
+            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-back" id="btnDetailResultReturn">戻り</a>
+            <h1>実績明細入力</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain">
+                <label for="detailOrderNo">受注NO</label><input type="text" 　id="detailOrderNo" name="detailOrderNo" readonly value="17-02-7012-00" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="detailLotNo">ロットNO</label><input type="text" id="detailLotNo" name="detailLotNo" readonly value="1070" />
+            </div>
+            <div id="tabs" data-role="tabs">
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#productConditions" data-ajax="false"  class="ui-btn-active">加工条件</a></li>
+                        <li><a href="#productCheck" data-ajax="false">判定</a></li>
+                        <li><a href="#productStopReason" data-ajax="false">停止理由</a></li>
+                        <li><a href="#productAdditives" data-ajax="false">添加剤</a></li>
+                        <li><a href="#productUnwinding" data-ajax="false">巻出</a></li>
+                        <li><a href="#productWinding" data-ajax="false">巻取</a></li>
+                    </ul>
+                </div>
+                <hr />
+                <div class="ui-body-d ui-content" id="productConditions">
+                    <ul id="pressConditionsList">
+                        <li>
+                            <h3>ユニット <span>1</span></h3>
+                            <!--<div data-role="fieldcontain">
+                                <label for="txtProductColor">色</label><input type="text" id="txtProductColor" value="緑" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="txtProductInkName">インキ名</label><input type="text" id="txtProductInkName" value="OS-M" />
+                            </div>-->
+                            <table class="detal-table">
+                                <thead>
+                                    <tr>
+                                        <th>色</th>
+                                        <th colspan="2">インキ名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" id="txtProductColor" value="緑" /></td>
+                                        <td colspan="2"><input type="text" id="txtProductInkName" value="OS-M" /></td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>粘度(秒)</th>
+                                        <th>乾燥温度(℃)</th>
+                                        <th>印圧(Kgf)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" value="16" /></td>
+                                        <td><input type="number" value="60" /></td>
+                                        <td><input type="number" value="1000" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                    <div class="ui-grid-d">
+                        <div class="ui-block-a"><button id="btnAddPressConditions">追加</button></div>
+                    </div>
+                </div>
+                <div class="ui-body-d ui-content" id="productCheck">
+                    <select data-role="slider" id="HasCheck">
+                        <option>NO検</option>
+                        <option>検有り</option>
+                    </select>
+                    <table id="CheckInfoArea">
+                        <tr>
+                            <td><input type="checkbox" id="chkPaper" /><label for="chkPaper">原紙</label></td>
+                            <td><input type="checkbox" id="chkPrint" /><label for="chkPrint">印刷</label></td>
+                            <td><input type="checkbox" id="chkOther" /><label for="chkOther">他</label></td>
+                            <td><input type="checkbox" id="chkAssign" /><label for="chkAssign">指定</label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><div data-role="fieldcontain"><label>検査内容</label><input type="text" /></div></td>
+                        </tr>
+                    </table>
+                    <!--<div data-role="content" id="CheckInfoArea">
+                        <div class="ui-grid-c">
+                            <div class="ui-block-a"><input type="checkbox" id="chkPaper" /><label for="chkPaper">原紙</label></div>
+                            <div class="ui-block-b"><input type="checkbox" id="chkPrint" /><label for="chkPrint">印刷</label></div>
+                            <div class="ui-block-c"><input type="checkbox" id="chkOther" /><label for="chkOther">他</label></div>
+                            <div class="ui-block-d"><input type="checkbox" id="chkAssign" /><label for="chkAssign">指定</label></div>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label>検査内容</label><input type="text" />
+                        </div>
+                    </div>-->
+                </div>
+                <div class="ui-body-d ui-content" id="productStopReason">
+                    <table>
+                        <tr>
+                            <td width="100px">停止理由</td>
+                            <td colspan="5"><select id="detailStopReason"></select></td>
+                        </tr>
+                        <tr>
+                            <td width="100px">速度</td>
+                            <td><input type="number" style="width:100px;" value="150" /></td>
+                            <td width="100px">m/min</td>
+                            <td width="100px">プレヒート</td>
+                            <td><input type="number" style="width:100px;" /></td>
+                            <td>℃</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ui-body-d ui-content" id="productAdditives">
+                    <select data-role="slider" id="HasAppendMeterails">
+                        <option>無</option>
+                        <option>有</option>
+                    </select>
+                    <table>
+                        <tr>
+                            <td width="100px">添加剤名</td>
+                            <td colspan="5"><select id="detailAppendMeterails"></select></td>
+                        </tr>
+                        <tr>
+                            <td width="100px">色</td>
+                            <td><input type="text" style="width:100px;" value="" /></td>
+                            <td width="100px"></td>
+                            <td width="100px">量</td>
+                            <td><input type="number" style="width:100px;" /></td>
+                            <td>％</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ui-body-d ui-content" id="productUnwinding">
+                    <table>
+                        <tr>
+                            <td width="100px">張力</td>
+                            <td><input type="number" style="width:100px;" value="110" /></td>
+                            <td width="100px">Kg(N)</td>
+                            <td width="100px">イン</td>
+                            <td><input type="number" style="width:100px;" value="120" /></td>
+                            <td>Kg(N)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ui-body-d ui-content" id="productWinding">
+                    <table>
+                        <tr>
+                            <td width="100px">アウト</td>
+                            <td><input type="number" style="width:100px;" value="130" /></td>
+                            <td width="100px">Kg(N)</td>
+                            <td width="100px">張力</td>
+                            <td><input type="number" style="width:100px;" value="140" /></td>
+                            <td>Kg(N)</td>
+                        </tr>
+                        <tr>
+                            <td width="100px">デーバー</td>
+                            <td><input type="number" style="width:100px;" value="110.21" /></td>
+                            <td width="100px">％</td>
+                            <td width="100px">タッチ圧</td>
+                            <td><input type="number" style="width:100px;" value="0.26" /></td>
+                            <td>Kg/m2</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>   
+            <hr />
+            <fieldset data-role="controlgroup">
+                <h3>備考(追加インキ記録)</h3>
+                <textarea></textarea>
+            </fieldset>
         </div>
     </div>
 </body>

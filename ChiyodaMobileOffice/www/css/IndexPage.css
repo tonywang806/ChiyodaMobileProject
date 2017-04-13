@@ -8,12 +8,38 @@
         border: 1px solid #ccc;
         padding: 12px 8px;
         text-align: center;
+    }
+
+    #detal-table td {
         height: 40px;
     }
 
     #detal-table th {
         background-color: #1e50a2;
         color: #fff;
+        height: 20px;
+    }
+
+.detal-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+    .detal-table th, .detal-table td {
+        border: 1px solid #ccc;
+        padding: 4px 4px;
+        text-align: center;
+    }
+
+    .detal-table td {
+        height: 40px;
+    }
+
+    .detal-table th {
+        background-color: #1e50a2;
+        color: #fff;
+        height: 20px;
     }
 
 

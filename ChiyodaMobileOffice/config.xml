@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myapp49a454" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="ja-JP">
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.chiyodaDailyReport" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="ja-JP">
   <name>ChiyodaMobileOffice</name>
   <description>Apache Cordova を使用して、複数のモバイル プラットフォーム (Android、iOS、Windows ユニバーサル プラットフォーム) を対象とするアプリを構築するのを支援する空のプロジェクトです。</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">ここにユーザーの名前を入力</author>
@@ -103,6 +103,6 @@
     <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
     <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
   </platform>
-  <preference name="Orientation" value="landscape" />
-  <preference name="Fullscreen" value="True" />
+  <preference name="Orientation" value="default" />
+  <preference name="Fullscreen" value="False" />
 </widget>
