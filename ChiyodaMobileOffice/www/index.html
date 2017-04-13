@@ -77,8 +77,8 @@
                 <div class="ui-block-d"></div>
             </div>-->
             <div data-role="controlgroup" data-type="horizontal">
-                <a href="#StaffSetting" class="ui-btn ui-corner-all">担当者設定</a>
-                <a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all">作業環境測定</a>
+                <a href="#StaffSetting" class="ui-btn ui-corner-all" data-ajax="false"  >担当者設定</a>
+                <a href="#pnlWorkEnviromentAssessment" class="ui-btn ui-icon-info ui-corner-all" data-ajax="false"  >作業環境測定</a>
                 <button class="ui-btn ui-corner-all" id="btnScheduleRead">予定計画読込</button>
             </div>
             <hr />
@@ -193,7 +193,7 @@
                 </li>
             </ul>
             <hr />
-            <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">閉じる</a>
+            <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left"  data-ajax="false"  >閉じる</a>
         </div>
     </div>
 
@@ -293,7 +293,7 @@
                 <label for="orderNo">受注NO</label><input type="text"  id="OrderNo" name="orderNo" readonly value="17-02-7012-00" />
             </div>
             <div data-role="controlgroup" data-type="horizontal">
-                <a href="#pnlWorkResult" class="ui-btn ui-icon-info ui-corner-all">稼働時間設定</a>
+                <a href="#pnlWorkResult" class="ui-btn ui-icon-info ui-corner-all"  data-ajax="false"  >稼働時間設定</a>
                 <button class="ui-corner-all" id="btnDetailResultEntry">加工条件入力</button>
             </div>
             <hr />
@@ -516,8 +516,8 @@
             <div data-role="fieldcontain">
                 <label for="detailLotNo">ロットNO</label><input type="text" id="detailLotNo" name="detailLotNo" readonly value="1070" />
             </div>
-            <div id="tabs" data-role="tabs">
-                <div data-role="navbar" data-type="horizontal">
+            <div id="tabs" data-role="tabs" class="inlinetabs">
+                <div data-role="navbar">
                     <ul>
                         <li><a href="#productConditions" data-ajax="false"  class="ui-btn-active">加工条件</a></li>
                         <li><a href="#productCheck" data-ajax="false">判定</a></li>
@@ -527,17 +527,10 @@
                         <li><a href="#productWinding" data-ajax="false">巻取</a></li>
                     </ul>
                 </div>
-                <hr />
-                <div class="ui-body-d ui-content" id="productConditions">
+                <div class="ui-body ui-body-c" id="productConditions">
                     <ul id="pressConditionsList">
                         <li>
                             <h3>ユニット <span>1</span></h3>
-                            <!--<div data-role="fieldcontain">
-                                <label for="txtProductColor">色</label><input type="text" id="txtProductColor" value="緑" />
-                            </div>
-                            <div data-role="fieldcontain">
-                                <label for="txtProductInkName">インキ名</label><input type="text" id="txtProductInkName" value="OS-M" />
-                            </div>-->
                             <table class="detal-table">
                                 <thead>
                                     <tr>
@@ -572,16 +565,16 @@
                         <div class="ui-block-a"><button id="btnAddPressConditions">追加</button></div>
                     </div>
                 </div>
-                <div class="ui-body-d ui-content" id="productCheck">
+                <div class="ui-body ui-body-c" id="productCheck">
                     <select data-role="slider" id="HasCheck">
-                        <option>NO検</option>
-                        <option>検有り</option>
+                        <option value="0">NO検</option>
+                        <option value="1">検有り</option>
                     </select>
-                    <table id="CheckInfoArea">
+                    <table id="CheckInfoArea" class="ui-state-disabled">
                         <tr>
                             <td><input type="checkbox" id="chkPaper" /><label for="chkPaper">原紙</label></td>
-                            <td><input type="checkbox" id="chkPrint" /><label for="chkPrint">印刷</label></td>
-                            <td><input type="checkbox" id="chkOther" /><label for="chkOther">他</label></td>
+                            <td><input type="checkbox" id="chkPrint"  /><label for="chkPrint">印刷</label></td>
+                            <td><input type="checkbox" id="chkOther"  /><label for="chkOther">他</label></td>
                             <td><input type="checkbox" id="chkAssign" /><label for="chkAssign">指定</label></td>
                         </tr>
                         <tr>
@@ -600,7 +593,7 @@
                         </div>
                     </div>-->
                 </div>
-                <div class="ui-body-d ui-content" id="productStopReason">
+                <div class="ui-body ui-body-c" id="productStopReason">
                     <table>
                         <tr>
                             <td width="100px">停止理由</td>
@@ -616,12 +609,12 @@
                         </tr>
                     </table>
                 </div>
-                <div class="ui-body-d ui-content" id="productAdditives">
+                <div class="ui-body ui-body-c" id="productAdditives">
                     <select data-role="slider" id="HasAppendMeterails">
-                        <option>無</option>
-                        <option>有</option>
+                        <option value="0">無</option>
+                        <option value="1">有</option>
                     </select>
-                    <table>
+                    <table id="detailAppendMeterailsArea"  class="ui-state-disabled">
                         <tr>
                             <td width="100px">添加剤名</td>
                             <td colspan="5"><select id="detailAppendMeterails"></select></td>
@@ -636,7 +629,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="ui-body-d ui-content" id="productUnwinding">
+                <div class="ui-body ui-body-c" id="productUnwinding">
                     <table>
                         <tr>
                             <td width="100px">張力</td>
@@ -648,7 +641,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="ui-body-d ui-content" id="productWinding">
+                <div class="ui-body ui-body-c" id="productWinding">
                     <table>
                         <tr>
                             <td width="100px">アウト</td>
@@ -674,6 +667,7 @@
                 <h3>備考(追加インキ記録)</h3>
                 <textarea></textarea>
             </fieldset>
+
         </div>
     </div>
 </body>

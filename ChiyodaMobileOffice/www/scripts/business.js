@@ -54,6 +54,8 @@ function InitailizeDailyReportForm() {
     reason.forEach(function (elem, index) {
         $("#detailStopReason").append($('<option>').html(elem));
     });
+
+    //$("#tabs").tabs();
 }
 
 function GotoResultEntry() {
@@ -303,4 +305,31 @@ function AddPressConditions() {
     newRow = newRow + "</li>";
 
     $(newRow).appendTo("#pressConditionsList").enhanceWithin();
+}
+
+function SetCheckWorkEditable() {
+    if ($("#HasCheck").val() === "0") {
+        if (!$("#CheckInfoArea").hasClass("ui-state-disabled")) {
+            $("#CheckInfoArea").addClass("ui-state-disabled");
+        };
+
+    } else {
+        
+        if ($("#CheckInfoArea").hasClass("ui-state-disabled")) {
+            $("#CheckInfoArea").removeClass("ui-state-disabled");
+        };
+    }
+}
+
+function SetAppendMeterailsEditable() {
+    if ($("#HasAppendMeterails").val() === "0") {
+        if (!$("#detailAppendMeterailsArea").hasClass("ui-state-disabled")) {
+            $("#detailAppendMeterailsArea").addClass("ui-state-disabled");
+        };
+
+    } else {
+        if ($("#detailAppendMeterailsArea").hasClass("ui-state-disabled")) {
+            $("#detailAppendMeterailsArea").removeClass("ui-state-disabled");
+        };
+    }
 }

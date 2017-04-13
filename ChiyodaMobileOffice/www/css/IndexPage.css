@@ -64,3 +64,26 @@
 input[type=number] {
     text-align: right;
 }
+
+.inlinetabs .ui-navbar {
+    padding: 0 8px;
+}
+
+.inlinetabs .ui-tabs-nav > li {
+    margin: 0;
+    width: auto;
+    clear: none;
+}
+
+.inlinetabs .ui-tabs-nav .ui-btn {
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-top-left-radius: .6em;
+    border-top-right-radius: .6em;
+}
+
+.inlinetabs .ui-tabs-panel {
+    background: #fff;
+    border-radius: .6em;
+    border: 1px solid #ddd;
+}

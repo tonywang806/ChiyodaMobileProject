@@ -9,7 +9,9 @@
     $("#btnLoadConfig").bind('click', LoadStaffConfig);
     $("#btnAddStaff").bind('click', AddStaff);
     $("#btnMeasureTime").bind('click', SetMeasureTime);
-    $("#btnAddPressConditions").bind('click',AddPressConditions)
+    $("#btnAddPressConditions").bind('click', AddPressConditions)
+    $("#HasCheck").bind('change', SetCheckWorkEditable)
+    $("#HasAppendMeterails").bind('change', SetAppendMeterailsEditable)
 
     //戻るボタンイベント
     $("#btnStaffReturn").bind("click", function () {
