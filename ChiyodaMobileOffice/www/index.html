@@ -205,12 +205,11 @@
             <h1>担当者設定</h1>
         </div>
         <div data-role="content">
-            <div class="ui-grid-d">
+            <div class="ui-grid-c">
                 <div class="ui-block-a"></div>
                 <div class="ui-block-b"></div>
-                <div class="ui-block-c"></div>
-                <div class="ui-block-d"><button class="ui-corner-all" id="btnLoadConfig">配置読込</button></div>
-                <div class="ui-block-e"><button class="ui-corner-all" id="btnAddStaff">人員追加</button></div>
+                <div class="ui-block-c"><button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-heart" id="btnLoadConfig">配置読込</button></div>
+                <div class="ui-block-d"><button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-plus" id="btnAddStaff">人員追加</button></div>
             </div>
             <hr />
             <ul id="ConfigList">
@@ -294,8 +293,8 @@
                 <label for="orderNo">受注NO</label><input type="text"  id="OrderNo" name="orderNo" readonly value="17-02-7012-00" />
             </div>
             <div data-role="controlgroup" data-type="horizontal">
-                <a href="#pnlWorkResult" class="ui-btn ui-icon-info ui-corner-all"  data-ajax="false"  >稼働時間設定</a>
-                <button class="ui-corner-all" id="btnDetailResultEntry">加工条件入力</button>
+                <a href="#pnlWorkResult" class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-gear"  data-ajax="false"  >稼働時間設定</a>
+                <button class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-bullets" id="btnDetailResultEntry">加工条件入力</button>
             </div>
             <hr />
             <table class="detal-table" id="tblDetails">
@@ -529,7 +528,7 @@
                     </ul>
                 </div>
                 <div class="ui-body ui-body-c" id="productConditions">
-                    <button id="btnAddPressConditions" style="width:80px;float:right">追加</button>
+                    <button id="btnAddPressConditions" class="ui-btn ui-corner-all  ui-btn-icon-left ui-icon-plus" style="width:100px;float:right">追加</button>
                     <ul id="pressConditionsList">
                         <li>
                             <h3>ユニット <span>1</span></h3>
